@@ -10,16 +10,17 @@
 #define _LOGGER_H_
 
 #include <stdint.h>
-#include "MKL25Z4.h"
 #include <stdlib.h>
 #include "conversion.h"
-
+#ifdef KL25Z_PLATFORM
+#include "MKL25Z4.h"
 #include "uart.h"
 #include "rtc.h"
-
+#endif
 
 #ifdef BBB_PLATFORM
 #include <sys/time.h>
+#include <stdio.h>
 #endif
 #define LOG_RAW_DATA(data,len)								(log_data(data,len))
 #define LOG_RAW_STRING(string)								(log_string(string))

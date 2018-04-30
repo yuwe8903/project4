@@ -5,7 +5,9 @@
 *************************************************************/
 #ifndef _GPIO_H_
 #define _GPIO_H_
+#ifdef KL25Z_PLATFORM
 #include "MKL25Z4.h"
+#endif
 #include <stdint.h>
 
 

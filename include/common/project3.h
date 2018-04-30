@@ -11,9 +11,10 @@
 #include<stdlib.h>
 #include<stdio.h>
 #include "profiling.h"
+#ifdef KL25Z_PLATFORM
 #include "spi.h"
 #include "nordic.h"
-
+#endif
 void project3_spi_nrf_interface();
 void project3_profile_demo();
 

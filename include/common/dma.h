@@ -7,7 +7,9 @@
 
 #ifndef _DMA_H_
 #define _DMA_H_
+#ifdef KL25Z_PLATFORM
 #include "MKL25Z4.h"
+#endif
 #include <stdint.h>
 #include <stdlib.h>
 

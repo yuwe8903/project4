@@ -13,8 +13,7 @@
 #include <sys/time.h>
 #include "dma.h"
 #include "logger.h"
-//#include "MKL25Z4.h"
-#define KL25Z_PLATFORM
+//#define KL25Z_PLATFORM
 //#define BBB_PLATFORM
 
 #ifdef KL25Z_PLATFORM

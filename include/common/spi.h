@@ -9,7 +9,6 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-#include "MKL25Z4.h"
 #include "logger.h"
 /*********************************************************
 * void SPI_Configure() - This function will configure
