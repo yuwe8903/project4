@@ -36,9 +36,11 @@ void delay(uint32_t number);
 int main(void)
 {
 
-	
+	#ifdef KL25Z_PLATFORM
 	UART_configure();
+	#endif
 	log_string("UART configured");
+	
 	DMA_Configure();//configure dma to do memmove
 	log_string("DMA configured");
 
