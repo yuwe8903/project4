@@ -36,17 +36,13 @@ void delay(uint32_t number);
 int main(void)
 {
 
-	GPIO_Configure();
+	
 	UART_configure();
+	log_string("UART configured");
 	DMA_Configure();//configure dma to do memmove
-
+	log_string("DMA configured");
 
 	project3_profile_demo();
-
-  // uint8_t data[] = "hello";
-   //uint8_t * ptr = data;
-   //UART_send_n(ptr,6);
-  // UART_receive((uint16_t*)ptr);
 
     return 0;
 }
