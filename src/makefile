@@ -50,7 +50,7 @@ endif
 ifeq ($(PLATFORM),HOST)
 OBJS = $(SRCS:.c=.o)
 else ifeq ($(PLATFORM),BBB)
-OBJS = $(SRCS:.c=.o) $(KL25Z_SRCS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 else ifeq ($(PLATFORM),KL25Z)
 OBJS = $(SRCS:.c=.o) $(KL25Z_SRCS:.c=.o) $(S_SRCS:.S=.o)
 endif
