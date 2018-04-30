@@ -7,7 +7,7 @@
 *************************************************************/
 #include "dma.h"
 
-
+#ifdef KL25Z_PLATFORM
 void DMA_Configure()
 {
 	SIM_SCGC6|=SIM_SCGC6_DMAMUX_MASK;/*Enable the DMAMUX bit to 1 in the (SIM_SCGC6)*/
@@ -102,3 +102,4 @@ void DMA0_IRQHandler()
 
 	NVIC_EnableIRQ(DMA0_IRQn);
 }
+#endif
