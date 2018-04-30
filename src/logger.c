@@ -12,52 +12,60 @@ void log_data(uint8_t * data, size_t len)
 {
 	if(data != NULL)
 	{
+#ifdef KL25Z_PLATFORM
 		for(uint8_t i = 0; i < len; i++)
 		{
 			UART_send((data+i));
 		}
+#endif
 #ifdef BBB_PLATFORM
 		for(uint8_t i = 0; i < len; i++)
 		{
-			printf("%c \t",(data+i));
+			printf("%s \t",(data+i));
 		}
 		printf("\n");
 #endif
 	}
+	return;
 }
 void log_string(uint8_t * string)
 {
 	uint8_t i = 0;
+#ifdef KL25Z_PLATFORM
 	while( *string != 0)
 	{
 		UART_send((string+i));
 		i++;
 	}
+#endif
 #ifdef BBB_PLATFORM
 	while( *string != 0)
 		{
-			frintf("%c \t",(string+i));
+			printf("%s \t",(string+i));
 			i++;
 		}
 	printf("\n");
 #endif
-
+	return;
 }
 void log_int(int32_t number)
 {
 	uint8_t buffer[10];
 	my_itoa(number, buffer, 10);
+#ifdef KL25Z_PLATFORM
 	for(uint8_t i = 0; i < 10; i++)
 	{
 		UART_send((buffer+i));
 	}
+#endif
 #ifdef BBB_PLATFORM
 	for(uint8_t i = 0; i < 10; i++)
 	{
-		printf("%c \t",(buffer+i));
+		printf("%s \t",(buffer+i));
 	}
 	printf("\n");
 #endif
+	return;
 }
 void log_flush()
 {
@@ -81,7 +89,7 @@ uint16_t check_sum(Logid_e log_id_)
 }
 void log_item(Logstructure_t * ptr)
 {
-	uint8_t * pointer = &(ptr->log_id);
+	uint8_t * pointer = (uint8_t*)(ptr->log_id);
 	LOG_RAW_STRING(pointer);
 	LOG_RAW_INT((ptr->timestamp));
 	LOG_RAW_INT((ptr->payload_length));
