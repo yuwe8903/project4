@@ -6,7 +6,7 @@
 *  @date Apr 7, 2018
 *************************************************************/
 #include "project3.h"
-
+#ifdef KL25Z_PLATFORM
 void project3_spi_nrf_interface()
 {
 	SPI_Configure();
@@ -14,7 +14,7 @@ void project3_spi_nrf_interface()
 
 	return;
 }
-
+#endif
 void project3_profile_demo()
 {
 
